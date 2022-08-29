@@ -1,3 +1,4 @@
+// sign up
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
@@ -29,6 +30,7 @@ userSchema.pre("save", async function(next) {
     }
 });
 
+// sign in
 userSchema.methods.comparePassword = async function(typedPassword, next) {
     try {
         let isMatch = await bcrypt.compare(typedPassword, this.password);
